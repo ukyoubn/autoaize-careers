@@ -202,17 +202,16 @@ async function submitForm() {
   setProgress(20, 'ファイルを読み込み中...');
 
   try {
-    const html = await readFile(selectedFile);
+    const htmlBase64 = await readFileAsBase64(selectedFile);
     setProgress(50, 'デプロイ中... (30秒ほどかかります)');
 
-    // fetch with cors mode
     const response = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         type: 'deploy',
         name, title, description,
-        html: btoa(unescape(encodeURIComponent(html))),
+        html: htmlBase64,
         date: new Date().toLocaleDateString('ja-JP')
       })
     });
@@ -233,6 +232,21 @@ async function submitForm() {
     document.getElementById('error').style.display = 'block';
     btn.disabled = false;
   }
+}
+
+function readFileAsBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const arrayBuffer = e.target.result;
+      const bytes = new Uint8Array(arrayBuffer);
+      let binary = '';
+      bytes.forEach(b => binary += String.fromCharCode(b));
+      resolve(btoa(binary));
+    };
+    reader.onerror = reject;
+    reader.readAsArrayBuffer(file);
+  });
 }
 
 function readFile(file) {
