@@ -32,8 +32,6 @@
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
   }
-
-  /* NAV */
   nav {
     display: flex;
     justify-content: space-between;
@@ -42,31 +40,15 @@
     height: 64px;
     border-bottom: 1px solid var(--gray-200);
   }
-  .nav-brand {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--black);
-    text-decoration: none;
-    letter-spacing: -0.02em;
-  }
-  .nav-back {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
+  .nav-brand { font-size: 17px; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-back { font-size: 13px; font-weight: 500; color: var(--gray-600); text-decoration: none; transition: color 0.2s; }
   .nav-back:hover { color: var(--black); }
 
-  /* LAYOUT */
   .layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: calc(100vh - 64px);
   }
-
-  /* LEFT PANEL */
   .left-panel {
     background: var(--black);
     padding: 80px 64px;
@@ -74,100 +56,26 @@
     flex-direction: column;
     justify-content: center;
   }
-  .left-tag {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(0, 87, 255, 0.15);
-    padding: 6px 14px;
-    margin-bottom: 40px;
-    width: fit-content;
-  }
-  .left-title {
-    font-size: clamp(32px, 3.5vw, 56px);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    margin-bottom: 24px;
-  }
+  .left-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: rgba(0,87,255,0.15); padding: 6px 14px; margin-bottom: 40px; width: fit-content; }
+  .left-title { font-size: clamp(32px, 3.5vw, 56px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px; }
   .left-title span { color: var(--accent); }
-  .left-sub {
-    font-size: 15px;
-    font-weight: 300;
-    color: var(--gray-400);
-    line-height: 1.9;
-    max-width: 360px;
-    margin-bottom: 56px;
-  }
-  .left-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .step {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .step-num {
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--white);
-    flex-shrink: 0;
-  }
-  .step-text {
-    font-size: 14px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.01em;
-  }
+  .left-sub { font-size: 15px; font-weight: 300; color: var(--gray-400); line-height: 1.9; max-width: 360px; margin-bottom: 56px; }
+  .left-steps { display: flex; flex-direction: column; gap: 20px; }
+  .step { display: flex; align-items: center; gap: 16px; }
+  .step-num { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--white); flex-shrink: 0; }
+  .step-text { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.6); }
 
-  /* RIGHT PANEL */
-  .right-panel {
-    padding: 80px 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .form-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin-bottom: 48px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid var(--black);
-  }
-
-  .form-group {
-    margin-bottom: 40px;
-  }
-  .form-label {
-    display: block;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    margin-bottom: 12px;
-  }
-  .form-input {
+  .right-panel { padding: 64px; display: flex; flex-direction: column; justify-content: center; overflow-y: auto; }
+  .form-title { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid var(--black); }
+  .form-group { margin-bottom: 32px; }
+  .form-label { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 10px; }
+  .form-label span { color: var(--gray-400); font-size: 9px; }
+  .form-input, .form-textarea {
     display: block;
     width: 100%;
     background: var(--gray-100);
     border: 2px solid transparent;
-    padding: 16px 20px;
+    padding: 14px 18px;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 15px;
     font-weight: 400;
@@ -177,73 +85,22 @@
     border-radius: 0;
     -webkit-appearance: none;
   }
-  .form-input:focus {
-    background: var(--white);
-    border-color: var(--black);
-  }
-  .form-input::placeholder {
-    color: var(--gray-400);
-  }
+  .form-textarea { resize: vertical; min-height: 90px; line-height: 1.7; }
+  .form-input:focus, .form-textarea:focus { background: var(--white); border-color: var(--black); }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--gray-400); font-size: 14px; }
 
-  .submit-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 20px 40px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 8px;
-  }
-  .submit-btn:hover:not(:disabled) {
-    background: var(--accent);
-    gap: 18px;
-  }
+  .submit-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; background: var(--black); color: var(--white); font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; padding: 20px 40px; border: none; cursor: pointer; transition: all 0.2s; margin-top: 8px; }
+  .submit-btn:hover:not(:disabled) { background: var(--accent); gap: 18px; }
   .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .btn-arrow { font-size: 18px; transition: transform 0.2s; }
 
-  .message {
-    display: none;
-    margin-top: 24px;
-    padding: 20px 24px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.7;
-  }
-  .message.success {
-    background: var(--success-light);
-    border-left: 3px solid var(--success);
-    color: var(--success);
-  }
-  .message.error {
-    background: var(--error-light);
-    border-left: 3px solid var(--error);
-    color: var(--error);
-  }
-  .message a {
-    color: var(--black);
-    font-weight: 700;
-    text-decoration: underline;
-  }
+  .message { display: none; margin-top: 24px; padding: 20px 24px; font-size: 14px; line-height: 1.7; }
+  .message.success { background: var(--success-light); border-left: 3px solid var(--success); color: var(--success); }
+  .message.error { background: var(--error-light); border-left: 3px solid var(--error); color: var(--error); }
+  .message a { color: var(--black); font-weight: 700; text-decoration: underline; }
 
-  /* ANIMATION */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .left-tag   { animation: fadeUp 0.4s ease both; }
-  .left-title { animation: fadeUp 0.4s 0.08s ease both; }
-  .left-sub   { animation: fadeUp 0.4s 0.16s ease both; }
-  .left-steps { animation: fadeUp 0.4s 0.24s ease both; }
-  .right-panel { animation: fadeUp 0.4s 0.12s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .left-panel { animation: fadeUp 0.4s ease both; }
+  .right-panel { animation: fadeUp 0.4s 0.1s ease both; }
 
   @media (max-width: 768px) {
     nav { padding: 0 24px; }
@@ -264,20 +121,11 @@
   <div class="left-panel">
     <div class="left-tag">Submit Your Work</div>
     <h1 class="left-title">作品を<br><span>残す</span>。</h1>
-    <p class="left-sub">名前とURLを入力するだけ。あなたの採用ページが、ギャラリーに加わります。</p>
+    <p class="left-sub">4つの項目を入力するだけ。あなたの採用ページがギャラリーに加わります。</p>
     <div class="left-steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <span class="step-text">採用ページをVercelにデプロイする</span>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <span class="step-text">発行されたURLをここに入力する</span>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <span class="step-text">ギャラリーに自動で追加される</span>
-      </div>
+      <div class="step"><div class="step-num">01</div><span class="step-text">採用ページをVercelにデプロイする</span></div>
+      <div class="step"><div class="step-num">02</div><span class="step-text">名前・タイトル・説明・URLを入力する</span></div>
+      <div class="step"><div class="step-num">03</div><span class="step-text">ギャラリーに自動で追加される</span></div>
     </div>
   </div>
 
@@ -290,12 +138,22 @@
     </div>
 
     <div class="form-group">
+      <label class="form-label" for="title">ページのタイトル <span>（例：文系のあなたへ。）</span></label>
+      <input class="form-input" type="text" id="title" placeholder="このページのキャッチコピーや見出し" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="description">一言説明 <span>（どんなページか簡単に）</span></label>
+      <textarea class="form-textarea" id="description" placeholder="例：未経験・文系向けに作った採用ページです。AIとの共存をテーマにしました。"></textarea>
+    </div>
+
+    <div class="form-group">
       <label class="form-label" for="url">採用ページのURL</label>
       <input class="form-input" type="url" id="url" placeholder="https://your-page.vercel.app" />
     </div>
 
     <button class="submit-btn" id="btn" onclick="submitForm()">
-      提出する <span class="btn-arrow">→</span>
+      提出する <span>→</span>
     </button>
 
     <div class="message success" id="success">
@@ -312,31 +170,35 @@
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRUpMFxmno_PeJhR0BnhQsYDBkotsA_WoQp54PrJ-DWLbG4CVmVa5GewPe8n8rkNLQ/exec';
 
 async function submitForm() {
-  const name = document.getElementById('name').value.trim();
-  const url  = document.getElementById('url').value.trim();
+  const name        = document.getElementById('name').value.trim();
+  const title       = document.getElementById('title').value.trim();
+  const description = document.getElementById('description').value.trim();
+  const url         = document.getElementById('url').value.trim();
 
-  if (!name || !url) { alert('名前とURLを入力してください。'); return; }
+  if (!name || !url) { alert('名前とURLは必須です。'); return; }
   if (!url.startsWith('http')) { alert('URLは https:// から始めてください。'); return; }
 
   const btn = document.getElementById('btn');
   btn.disabled = true;
-  btn.innerHTML = '送信中... <span class="btn-arrow">⟳</span>';
+  btn.textContent = '送信中...';
 
   try {
     await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, url, date: new Date().toLocaleDateString('ja-JP') })
+      body: JSON.stringify({ name, title, description, url, date: new Date().toLocaleDateString('ja-JP') })
     });
     document.getElementById('success').style.display = 'block';
     document.getElementById('name').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
     document.getElementById('url').value = '';
     btn.style.display = 'none';
   } catch (e) {
     document.getElementById('error').style.display = 'block';
     btn.disabled = false;
-    btn.innerHTML = '提出する <span class="btn-arrow">→</span>';
+    btn.textContent = '提出する →';
   }
 }
 </script>
