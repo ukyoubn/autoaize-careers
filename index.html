@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AutoAIze — Careers Gallery</title>
+<title>AutoAIze — 作品を提出する</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@500;700&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
@@ -27,10 +27,9 @@
     line-height: 1.85;
     -webkit-font-smoothing: antialiased;
   }
-  body { overflow-x: hidden; }
 
   .wrap {
-    max-width: 880px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 0 32px;
   }
@@ -50,7 +49,7 @@
   nav.top .meta  { color: var(--muted); letter-spacing: 0.18em; font-size: 11px; }
 
   .hero {
-    padding: 12vh 0 8vh;
+    padding: 10vh 0 6vh;
   }
   .hero-label {
     font-family: 'DM Mono', monospace;
@@ -63,19 +62,55 @@
   .hero-title {
     font-family: 'Kaisei Decol', serif;
     font-weight: 500;
-    font-size: clamp(28px, 4.2vw, 48px);
+    font-size: clamp(24px, 3.5vw, 40px);
     line-height: 1.4;
-    margin: 0 0 20px;
+    margin: 0 0 16px;
     color: var(--ink);
-    letter-spacing: 0.01em;
   }
   .hero-sub {
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    letter-spacing: 0.12em;
+    font-size: 12px;
+    letter-spacing: 0.14em;
     color: var(--muted);
-    margin: 0 0 40px;
+    margin: 0 0 48px;
   }
+
+  .form-group {
+    margin-bottom: 40px;
+  }
+  .form-label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .form-input {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-input:focus {
+    border-bottom-color: var(--ink);
+  }
+  .form-input::placeholder {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
   .submit-btn {
     display: inline-block;
     font-family: 'DM Mono', monospace;
@@ -85,109 +120,46 @@
     color: var(--paper);
     background: var(--ink);
     border: none;
-    padding: 14px 32px;
-    text-decoration: none;
+    padding: 16px 40px;
     cursor: pointer;
     transition: opacity 0.2s;
+    margin-top: 16px;
   }
   .submit-btn:hover { opacity: 0.75; }
+  .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-  .divider {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 0;
-  }
-
-  .section-label {
+  .message {
+    margin-top: 32px;
+    padding: 20px 24px;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    color: var(--muted);
-    text-transform: uppercase;
-    padding: 48px 0 32px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    display: none;
   }
-
-  .count-badge {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    border: 1px solid var(--line);
-    padding: 4px 12px;
-    margin-left: 16px;
-    vertical-align: middle;
+  .message.success {
+    border-left: 2px solid var(--gold);
+    color: var(--ink-soft);
   }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1px;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-    margin-bottom: 80px;
-  }
-
-  .card {
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    padding: 28px 24px;
-    background: var(--paper);
-    transition: background 0.2s;
-  }
-  .card:hover { background: #f2f2ee; }
-
-  .card-name {
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--ink);
-    margin: 0 0 8px;
-    letter-spacing: 0.04em;
-  }
-  .card-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    color: var(--muted);
-    margin: 0 0 20px;
-    text-transform: uppercase;
-  }
-  .card-link {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
+  .message.error {
+    border-left: 2px solid var(--accent);
     color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(194, 64, 47, 0.3);
-    padding-bottom: 2px;
-    transition: border-color 0.2s;
-    word-break: break-all;
-  }
-  .card-link:hover { border-color: var(--accent); }
-
-  .loading {
-    padding: 60px 0;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    color: var(--muted);
-    text-align: center;
   }
 
-  .empty {
-    padding: 60px 24px;
+  .back-link {
+    display: inline-block;
+    margin-top: 40px;
     font-family: 'DM Mono', monospace;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.16em;
     color: var(--muted);
-    text-align: center;
-    border-right: 1px solid var(--line);
+    text-decoration: none;
     border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
   }
+  .back-link:hover { color: var(--ink); border-color: var(--ink); }
 
   footer {
+    margin-top: 80px;
     border-top: 1px solid var(--line);
     padding: 32px 0;
     font-family: 'DM Mono', monospace;
@@ -202,86 +174,81 @@
 
 <nav class="top">
   <span class="brand">AutoAIze</span>
-  <span class="meta">Careers · Gallery</span>
+  <span class="meta">Careers · Submit</span>
 </nav>
 
 <div class="wrap">
   <div class="hero">
-    <p class="hero-label">— Careers Gallery</p>
-    <h1 class="hero-title">みんなの採用ページ</h1>
-    <p class="hero-sub">それぞれの光が、ここに集まる。</p>
-    <a href="submit.html" class="submit-btn">あなたの作品を提出する →</a>
+    <p class="hero-label">— Submit Your Work</p>
+    <h1 class="hero-title">あなたの作品を<br>ここに残す。</h1>
+    <p class="hero-sub">名前とURLを入力するだけ。</p>
   </div>
-</div>
 
-<hr class="divider">
+  <div class="form-group">
+    <label class="form-label" for="name">あなたの名前</label>
+    <input class="form-input" type="text" id="name" placeholder="山田 太郎" />
+  </div>
 
-<div class="wrap">
-  <p class="section-label">
-    提出作品
-    <span class="count-badge" id="count">— 件</span>
-  </p>
+  <div class="form-group">
+    <label class="form-label" for="url">採用ページのURL</label>
+    <input class="form-input" type="url" id="url" placeholder="https://your-page.vercel.app" />
+  </div>
 
-  <div id="loading" class="loading">loading...</div>
-  <div class="grid" id="grid" style="display:none;"></div>
+  <button class="submit-btn" id="btn" onclick="submitForm()">提出する →</button>
+
+  <div class="message success" id="success">
+    ✓ &nbsp;提出が完了しました。ギャラリーに追加されます。
+    <br><br>
+    <a href="index.html" style="color: var(--ink); letter-spacing: 0.1em;">← ギャラリーを見る</a>
+  </div>
+  <div class="message error" id="error">
+    提出に失敗しました。もう一度お試しください。
+  </div>
+
+  <br>
+  <a href="index.html" class="back-link">← ギャラリーに戻る</a>
 </div>
 
 <footer>AutoAIze Inc. — Careers Gallery</footer>
 
 <script>
-const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIyDkRloV7_tsgoFdCwDNMZbAllMVVlpyChKvKTEAa3znWSr1Dtvvcc4H_N9LiA_nrcgKnHG6qj3Vo/pub?gid=0&single=true&output=csv';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRUpMFxmno_PeJhR0BnhQsYDBkotsA_WoQp54PrJ-DWLbG4CVmVa5GewPe8n8rkNLQ/exec';
 
-function parseCSV(text) {
-  const lines = text.trim().split('\n');
-  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
-  return lines.slice(1).map(line => {
-    const cols = line.match(/(".*?"|[^,]+)(?=,|$)/g) || [];
-    const obj = {};
-    headers.forEach((h, i) => {
-      obj[h] = (cols[i] || '').trim().replace(/^"|"$/g, '');
-    });
-    return obj;
-  }).filter(row => row.name && row.url);
-}
+async function submitForm() {
+  const name = document.getElementById('name').value.trim();
+  const url  = document.getElementById('url').value.trim();
 
-async function load() {
+  if (!name || !url) {
+    alert('名前とURLを入力してください。');
+    return;
+  }
+  if (!url.startsWith('http')) {
+    alert('URLは http:// または https:// から始めてください。');
+    return;
+  }
+
+  const btn = document.getElementById('btn');
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+
   try {
-    const res = await fetch(CSV_URL + '&t=' + Date.now());
-    const text = await res.text();
-    const rows = parseCSV(text);
-
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('grid').style.display = 'grid';
-    document.getElementById('count').textContent = rows.length + ' 件';
-
-    const grid = document.getElementById('grid');
-
-    if (rows.length === 0) {
-      grid.innerHTML = '<div class="empty">まだ提出作品がありません。最初の一人になりませんか？</div>';
-      return;
-    }
-
-    rows.reverse().forEach(row => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <p class="card-name">${escHtml(row.name)}</p>
-        <p class="card-date">${escHtml(row.date || '')}</p>
-        <a class="card-link" href="${escHtml(row.url)}" target="_blank" rel="noopener">${escHtml(row.url)}</a>
-      `;
-      grid.appendChild(card);
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, url, date: new Date().toLocaleDateString('ja-JP') })
     });
+
+    document.getElementById('success').style.display = 'block';
+    document.getElementById('name').value = '';
+    document.getElementById('url').value = '';
+    btn.style.display = 'none';
   } catch (e) {
-    document.getElementById('loading').textContent = 'データの読み込みに失敗しました。';
-    console.error(e);
+    document.getElementById('error').style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = '提出する →';
   }
 }
-
-function escHtml(str) {
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-load();
 </script>
 </body>
 </html>
