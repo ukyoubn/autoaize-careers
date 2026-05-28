@@ -166,7 +166,7 @@
 </div>
 
 <script>
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxes_5TM0fW8eLD1rjwCW2U2TVDZ25js8i0Xx7ywNmpQc2kTzQ-bLNTFFe69JUKYxF7/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-KDSb-kpLO_T5-0KdG1ipOR8Fatxb08lxTuRJslOM9Lzdp3h2ytJe0NNus7pNoeCd/exec';
 
 // ファイルドロップ処理
 const fileDrop = document.getElementById('fileDrop');
@@ -218,28 +218,40 @@ async function submitForm() {
     const html = await readFile(selectedFile);
     setProgress(50, 'デプロイ中...');
 
-    // Apps Script経由でVercelにデプロイ
-    const res = await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    // Base64エンコード
+    const encoded = btoa(unescape(encodeURIComponent(html)));
+    setProgress(50, 'デプロイ中...');
+
+    // JSONP方式でApps Scriptに送信
+    const deployedUrl = await new Promise((resolve, reject) => {
+      const callbackName = 'cb_' + Date.now();
+      const params = new URLSearchParams({
         type: 'deploy',
         name, title, description,
-        html: btoa(unescape(encodeURIComponent(html))),
-        date: new Date().toLocaleDateString('ja-JP')
-      })
+        html: encoded,
+        date: new Date().toLocaleDateString('ja-JP'),
+        callback: callbackName
+      });
+
+      window[callbackName] = (data) => {
+        delete window[callbackName];
+        document.head.removeChild(script);
+        if (data.error) reject(new Error(JSON.stringify(data.error)));
+        else resolve(data.url);
+      };
+
+      const script = document.createElement('script');
+      script.src = APPS_SCRIPT_URL + '?' + params.toString();
+      script.onerror = () => reject(new Error('Script load error'));
+      document.head.appendChild(script);
+
+      setTimeout(() => reject(new Error('Timeout')), 30000);
     });
-
-    setProgress(100, '完了！');
-
-    // no-corsのためレスポンスが読めないので少し待ってから成功扱い
-    await new Promise(r => setTimeout(r, 3000));
 
     setProgress(100, '完了！');
     progress.style.display = 'none';
     document.getElementById('success').style.display = 'block';
-    document.getElementById('resultUrl').textContent = 'URLはギャラリーに自動追加されます。';
+    document.getElementById('resultUrl').textContent = deployedUrl || 'URLはギャラリーに自動追加されます。';
     btn.style.display = 'none';
 
   } catch (e) {
