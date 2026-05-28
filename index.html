@@ -92,6 +92,7 @@
 <nav>
   <a href="/" class="nav-brand">AutoAIze</a>
   <div class="nav-right">
+    <a href="guide.html" class="nav-link">はじめての人へ</a>
     <a href="https://autoaize.co.jp" class="nav-link" target="_blank">Company</a>
     <a href="submit.html" class="nav-cta">作品を提出する</a>
   </div>
@@ -175,7 +176,7 @@ async function load() {
       card.style.animationDelay = (i * 0.05) + 's';
       card.innerHTML = `
         <div class="card-preview">
-          <img src="${esc(thumb)}" alt="${esc(displayTitle)}" loading="lazy"
+          <img data-src="${esc(thumb)}" alt="${esc(displayTitle)}"
             onerror="this.parentElement.innerHTML='<div class=\\'card-preview-placeholder\\'>No Preview</div>'" />
         </div>
         <div class="card-body">
@@ -191,6 +192,19 @@ async function load() {
       `;
       grid.appendChild(card);
     });
+
+    // 画面内に入ったときだけ画像を読み込む
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          observer.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    document.querySelectorAll('img[data-src]').forEach(img => observer.observe(img));
   } catch (e) {
     document.getElementById('grid').innerHTML = '<div class="state-box"><p>データの読み込みに失敗しました。</p></div>';
   }
