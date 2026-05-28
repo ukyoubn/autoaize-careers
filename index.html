@@ -30,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -44,169 +43,37 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--gray-200);
   }
-  .nav-brand {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--black);
-    text-decoration: none;
-    letter-spacing: -0.02em;
-  }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-  .nav-link {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
+  .nav-brand { font-size: 17px; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+  .nav-link { font-size: 13px; font-weight: 500; color: var(--gray-600); text-decoration: none; transition: color 0.2s; }
   .nav-link:hover { color: var(--black); }
-  .nav-cta {
-    background: var(--black);
-    color: var(--white);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 10px 24px;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: background 0.2s;
-  }
+  .nav-cta { background: var(--black); color: var(--white); font-size: 13px; font-weight: 500; padding: 10px 24px; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; }
   .nav-cta:hover { background: var(--accent); }
 
-  /* HERO */
-  .hero {
-    padding: 160px 48px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .hero-tag {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-light);
-    padding: 6px 14px;
-    margin-bottom: 32px;
-  }
-  .hero-title {
-    font-size: clamp(40px, 6vw, 80px);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: var(--black);
-    margin-bottom: 24px;
-  }
-  .hero-title span {
-    color: var(--accent);
-  }
-  .hero-sub {
-    font-size: 17px;
-    font-weight: 300;
-    color: var(--gray-600);
-    max-width: 480px;
-    line-height: 1.8;
-    margin-bottom: 48px;
-  }
-  .hero-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--black);
-    color: var(--white);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 16px 36px;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: all 0.2s;
-  }
-  .hero-btn:hover {
-    background: var(--accent);
-    gap: 18px;
-  }
-  .hero-btn-arrow { font-size: 18px; }
+  .hero { padding: 160px 48px 80px; max-width: 1200px; margin: 0 auto; }
+  .hero-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 6px 14px; margin-bottom: 32px; }
+  .hero-title { font-size: clamp(40px, 6vw, 80px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--black); margin-bottom: 24px; }
+  .hero-title span { color: var(--accent); }
+  .hero-sub { font-size: 17px; font-weight: 300; color: var(--gray-600); max-width: 480px; line-height: 1.8; margin-bottom: 48px; }
+  .hero-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--black); color: var(--white); font-size: 14px; font-weight: 500; padding: 16px 36px; text-decoration: none; letter-spacing: 0.04em; transition: all 0.2s; }
+  .hero-btn:hover { background: var(--accent); gap: 18px; }
 
-  /* STATS BAR */
-  .stats-bar {
-    background: var(--black);
-    padding: 28px 48px;
-  }
-  .stats-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 64px;
-  }
-  .stat-item {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .stat-num {
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--white);
-    letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--gray-400);
-    text-transform: uppercase;
-  }
-  .stat-divider {
-    width: 1px;
-    height: 32px;
-    background: rgba(255,255,255,0.1);
-  }
+  .stats-bar { background: var(--black); padding: 28px 48px; }
+  .stats-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 64px; }
+  .stat-item { display: flex; align-items: baseline; gap: 8px; }
+  .stat-num { font-size: 28px; font-weight: 900; color: var(--white); letter-spacing: -0.02em; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--gray-400); text-transform: uppercase; }
+  .stat-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.1); }
 
-  /* GALLERY SECTION */
-  .gallery-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 48px;
-  }
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 48px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid var(--black);
-  }
-  .section-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--black);
-  }
-  .section-count {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--gray-400);
-    letter-spacing: 0.1em;
-  }
+  .gallery-section { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; padding-bottom: 24px; border-bottom: 2px solid var(--black); }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); }
+  .section-count { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gray-400); letter-spacing: 0.1em; }
 
-  /* GRID */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2px;
-    background: var(--gray-200);
-  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; background: var(--gray-200); }
+
   .card {
     background: var(--white);
-    padding: 36px 32px;
     transition: background 0.15s;
     position: relative;
     overflow: hidden;
@@ -219,88 +86,59 @@
     height: 0;
     background: var(--accent);
     transition: height 0.3s ease;
+    z-index: 1;
   }
   .card:hover { background: var(--gray-100); }
   .card:hover::before { height: 100%; }
 
-  .card-index {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--gray-400);
-    margin-bottom: 20px;
+  /* プレビュー画像エリア */
+  .card-preview {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--gray-100);
+    position: relative;
+    border-bottom: 1px solid var(--gray-200);
   }
-  .card-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--black);
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
+  .card-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.4s ease;
+    display: block;
   }
-  .card-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  .card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: gap 0.2s;
-    word-break: break-all;
-  }
-  .card-link:hover { gap: 12px; }
-  .card-link-arrow { font-size: 14px; flex-shrink: 0; }
-
-  /* LOADING / EMPTY */
-  .state-box {
-    grid-column: 1 / -1;
-    background: var(--white);
-    padding: 80px 48px;
-    text-align: center;
-  }
-  .state-box p {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    color: var(--gray-400);
-    text-transform: uppercase;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--black);
-    padding: 48px;
+  .card:hover .card-preview img { transform: scale(1.03); }
+  .card-preview-placeholder {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-  }
-  .footer-brand {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -0.01em;
-  }
-  .footer-copy {
+    justify-content: center;
+    background: var(--gray-100);
     font-family: 'DM Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.14em;
     color: var(--gray-400);
+    text-transform: uppercase;
   }
 
-  /* ANIMATION */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  /* カード下部 */
+  .card-body { padding: 24px 28px; }
+  .card-index { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--gray-400); margin-bottom: 8px; }
+  .card-name { font-size: 16px; font-weight: 700; color: var(--black); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .card-date { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--gray-400); text-transform: uppercase; margin-bottom: 16px; }
+  .card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--accent); text-decoration: none; transition: gap 0.2s; word-break: break-all; }
+  .card-link:hover { gap: 10px; }
+
+  .state-box { grid-column: 1 / -1; background: var(--white); padding: 80px 48px; text-align: center; }
+  .state-box p { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.18em; color: var(--gray-400); text-transform: uppercase; }
+
+  footer { background: var(--black); padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-brand { font-size: 15px; font-weight: 700; color: var(--white); }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--gray-400); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .hero-tag  { animation: fadeUp 0.5s ease both; }
   .hero-title{ animation: fadeUp 0.5s 0.1s ease both; }
   .hero-sub  { animation: fadeUp 0.5s 0.2s ease both; }
@@ -322,10 +160,7 @@
   <div class="hero-tag">Careers Gallery</div>
   <h1 class="hero-title">みんなの<br><span>採用ページ</span>。</h1>
   <p class="hero-sub">それぞれの個性が、ここに集まる。あなたの作品も、加えてください。</p>
-  <a href="submit.html" class="hero-btn">
-    作品を提出する
-    <span class="hero-btn-arrow">→</span>
-  </a>
+  <a href="submit.html" class="hero-btn">作品を提出する <span>→</span></a>
 </div>
 
 <div class="stats-bar">
@@ -365,15 +200,25 @@
 <script>
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIyDkRloV7_tsgoFdCwDNMZbAllMVVlpyChKvKTEAa3znWSr1Dtvvcc4H_N9LiA_nrcgKnHG6qj3Vo/pub?gid=0&single=true&output=csv';
 
+// urlからスクリーンショットURLを生成（無料サービス使用）
+function screenshotUrl(pageUrl) {
+  const encoded = encodeURIComponent(pageUrl);
+  return `https://api.screenshotone.com/take?url=${encoded}&viewport_width=1280&viewport_height=720&format=jpg&block_ads=true&block_cookie_banners=true&cache=true&access_key=public`;
+}
+
+// フォールバック:別サービス
+function screenshotUrlFallback(pageUrl) {
+  const encoded = encodeURIComponent(pageUrl);
+  return `https://image.thum.io/get/width/640/crop/360/noanimate/${pageUrl}`;
+}
+
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
   return lines.slice(1).map(line => {
     const cols = line.match(/(".*?"|[^,]+)(?=,|$)/g) || [];
     const obj = {};
-    headers.forEach((h, i) => {
-      obj[h] = (cols[i] || '').trim().replace(/^"|"$/g, '');
-    });
+    headers.forEach((h, i) => { obj[h] = (cols[i] || '').trim().replace(/^"|"$/g, ''); });
     return obj;
   }).filter(row => row.name && row.url);
 }
@@ -399,16 +244,23 @@ async function load() {
 
     grid.innerHTML = '';
     rows.reverse().forEach((row, i) => {
+      const thumb = screenshotUrlFallback(row.url);
       const card = document.createElement('div');
       card.className = 'card';
       card.style.animationDelay = (i * 0.05) + 's';
       card.innerHTML = `
-        <p class="card-index">No. ${String(rows.length - i).padStart(3, '0')}</p>
-        <p class="card-name">${esc(row.name)}</p>
-        <p class="card-date">${esc(row.date || '')}</p>
-        <a class="card-link" href="${esc(row.url)}" target="_blank" rel="noopener">
-          ${esc(row.url)}<span class="card-link-arrow">↗</span>
-        </a>
+        <div class="card-preview">
+          <img src="${esc(thumb)}" alt="${esc(row.name)}のページ" loading="lazy"
+            onerror="this.parentElement.innerHTML='<div class=\\'card-preview-placeholder\\'>No Preview</div>'" />
+        </div>
+        <div class="card-body">
+          <p class="card-index">No. ${String(rows.length - i).padStart(3, '0')}</p>
+          <p class="card-name">${esc(row.name)}</p>
+          <p class="card-date">${esc(row.date || '')}</p>
+          <a class="card-link" href="${esc(row.url)}" target="_blank" rel="noopener">
+            ページを見る ↗
+          </a>
+        </div>
       `;
       grid.appendChild(card);
     });
