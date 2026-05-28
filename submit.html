@@ -53,16 +53,7 @@
   .form-input:focus, .form-textarea:focus { background: var(--white); border-color: var(--black); }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--gray-400); font-size: 14px; }
 
-  /* ファイルアップロードエリア */
-  .file-drop {
-    border: 2px dashed var(--gray-200);
-    padding: 32px 24px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: var(--gray-100);
-    position: relative;
-  }
+  .file-drop { border: 2px dashed var(--gray-200); padding: 32px 24px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--gray-100); position: relative; }
   .file-drop:hover, .file-drop.dragover { border-color: var(--accent); background: var(--accent-light); }
   .file-drop input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
   .file-drop-icon { font-size: 28px; margin-bottom: 8px; }
@@ -76,18 +67,14 @@
 
   .progress { display: none; margin-top: 16px; }
   .progress-bar { height: 3px; background: var(--gray-200); overflow: hidden; }
-  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.3s ease; }
+  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.5s ease; }
   .progress-text { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--gray-400); margin-top: 8px; text-align: center; }
 
   .message { display: none; margin-top: 24px; padding: 20px 24px; font-size: 14px; line-height: 1.7; }
   .message.success { background: var(--success-light); border-left: 3px solid var(--success); color: var(--success); }
   .message.error { background: var(--error-light); border-left: 3px solid var(--error); color: var(--error); }
   .message a { color: var(--black); font-weight: 700; text-decoration: underline; }
-  .result-url { font-family: 'DM Mono', monospace; font-size: 13px; word-break: break-all; margin-top: 8px; }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  .left-panel { animation: fadeUp 0.4s ease both; }
-  .right-panel { animation: fadeUp 0.4s 0.1s ease both; }
+  .result-url { font-family: 'DM Mono', monospace; font-size: 12px; word-break: break-all; margin-top: 8px; color: var(--black); }
 
   @media (max-width: 768px) {
     nav { padding: 0 24px; }
@@ -165,10 +152,12 @@
   </div>
 </div>
 
-<script>
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-KDSb-kpLO_T5-0KdG1ipOR8Fatxb08lxTuRJslOM9Lzdp3h2ytJe0NNus7pNoeCd/exec';
+<!-- 送信用の隠しiframe -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-// ファイルドロップ処理
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzurNmt9CDG1o-0xqW4oTSw_zkA6p8U0ThixjxPKbJq6umr4wF7g_Z2u9FdVNSooFcr/exec';
+
 const fileDrop = document.getElementById('fileDrop');
 const fileInput = document.getElementById('fileInput');
 const fileSelected = document.getElementById('fileSelected');
@@ -208,57 +197,41 @@ async function submitForm() {
   const btn = document.getElementById('btn');
   btn.disabled = true;
 
-  // プログレスバー表示
   const progress = document.getElementById('progress');
   progress.style.display = 'block';
   setProgress(20, 'ファイルを読み込み中...');
 
   try {
-    // ファイル読み込み
     const html = await readFile(selectedFile);
-    setProgress(50, 'デプロイ中...');
+    setProgress(50, 'デプロイ中... (30秒ほどかかります)');
 
-    // Base64エンコード
-    const encoded = btoa(unescape(encodeURIComponent(html)));
-    setProgress(50, 'デプロイ中...');
-
-    // JSONP方式でApps Scriptに送信
-    const deployedUrl = await new Promise((resolve, reject) => {
-      const callbackName = 'cb_' + Date.now();
-      const params = new URLSearchParams({
+    // fetch with cors mode
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({
         type: 'deploy',
         name, title, description,
-        html: encoded,
-        date: new Date().toLocaleDateString('ja-JP'),
-        callback: callbackName
-      });
-
-      window[callbackName] = (data) => {
-        delete window[callbackName];
-        document.head.removeChild(script);
-        if (data.error) reject(new Error(JSON.stringify(data.error)));
-        else resolve(data.url);
-      };
-
-      const script = document.createElement('script');
-      script.src = APPS_SCRIPT_URL + '?' + params.toString();
-      script.onerror = () => reject(new Error('Script load error'));
-      document.head.appendChild(script);
-
-      setTimeout(() => reject(new Error('Timeout')), 30000);
+        html: btoa(unescape(encodeURIComponent(html))),
+        date: new Date().toLocaleDateString('ja-JP')
+      })
     });
 
+    const result = await response.json();
     setProgress(100, '完了！');
     progress.style.display = 'none';
+
+    if (result.error) throw new Error(JSON.stringify(result.error));
+
     document.getElementById('success').style.display = 'block';
-    document.getElementById('resultUrl').textContent = deployedUrl || 'URLはギャラリーに自動追加されます。';
+    document.getElementById('resultUrl').textContent = result.url || '';
     btn.style.display = 'none';
 
   } catch (e) {
+    console.error(e);
     progress.style.display = 'none';
     document.getElementById('error').style.display = 'block';
     btn.disabled = false;
-    console.error(e);
   }
 }
 
