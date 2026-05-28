@@ -24,14 +24,11 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { color: var(--black); background: var(--white); font-family: 'Noto Sans JP', sans-serif; font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-
   nav { display: flex; justify-content: space-between; align-items: center; padding: 0 48px; height: 64px; border-bottom: 1px solid var(--gray-200); }
   .nav-brand { font-size: 17px; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.02em; }
   .nav-back { font-size: 13px; font-weight: 500; color: var(--gray-600); text-decoration: none; transition: color 0.2s; }
   .nav-back:hover { color: var(--black); }
-
   .layout { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 64px); }
-
   .left-panel { background: var(--black); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
   .left-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: rgba(0,87,255,0.15); padding: 6px 14px; margin-bottom: 40px; width: fit-content; }
   .left-title { font-size: clamp(32px, 3.5vw, 56px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 24px; }
@@ -41,10 +38,8 @@
   .step { display: flex; align-items: center; gap: 16px; }
   .step-num { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--white); flex-shrink: 0; }
   .step-text { font-size: 14px; color: rgba(255,255,255,0.6); }
-
   .right-panel { padding: 64px; display: flex; flex-direction: column; justify-content: center; overflow-y: auto; }
   .form-title { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid var(--black); }
-
   .form-group { margin-bottom: 28px; }
   .form-label { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 10px; }
   .form-label span { font-size: 9px; color: var(--gray-400); }
@@ -52,30 +47,15 @@
   .form-textarea { resize: vertical; min-height: 80px; line-height: 1.7; }
   .form-input:focus, .form-textarea:focus { background: var(--white); border-color: var(--black); }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--gray-400); font-size: 14px; }
-
-  .file-drop { border: 2px dashed var(--gray-200); padding: 32px 24px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--gray-100); position: relative; }
-  .file-drop:hover, .file-drop.dragover { border-color: var(--accent); background: var(--accent-light); }
-  .file-drop input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-  .file-drop-icon { font-size: 28px; margin-bottom: 8px; }
-  .file-drop-text { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
-  .file-drop-sub { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--gray-400); }
-  .file-selected { display: none; margin-top: 12px; padding: 10px 16px; background: var(--accent-light); font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.08em; }
-
   .submit-btn { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; background: var(--black); color: var(--white); font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; padding: 20px 40px; border: none; cursor: pointer; transition: all 0.2s; margin-top: 8px; }
   .submit-btn:hover:not(:disabled) { background: var(--accent); gap: 18px; }
   .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-  .progress { display: none; margin-top: 16px; }
-  .progress-bar { height: 3px; background: var(--gray-200); overflow: hidden; }
-  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.5s ease; }
-  .progress-text { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--gray-400); margin-top: 8px; text-align: center; }
-
   .message { display: none; margin-top: 24px; padding: 20px 24px; font-size: 14px; line-height: 1.7; }
   .message.success { background: var(--success-light); border-left: 3px solid var(--success); color: var(--success); }
   .message.error { background: var(--error-light); border-left: 3px solid var(--error); color: var(--error); }
   .message a { color: var(--black); font-weight: 700; text-decoration: underline; }
-  .result-url { font-family: 'DM Mono', monospace; font-size: 12px; word-break: break-all; margin-top: 8px; color: var(--black); }
-
+  .hint { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 14px 18px; margin-bottom: 28px; font-size: 13px; line-height: 1.7; color: var(--black); }
+  .hint a { color: var(--accent); font-weight: 700; }
   @media (max-width: 768px) {
     nav { padding: 0 24px; }
     .layout { grid-template-columns: 1fr; }
@@ -85,177 +65,85 @@
 </style>
 </head>
 <body>
-
 <nav>
   <a href="/" class="nav-brand">AutoAIze</a>
   <a href="index.html" class="nav-back">← ギャラリーに戻る</a>
 </nav>
-
 <div class="layout">
   <div class="left-panel">
     <div class="left-tag">Submit Your Work</div>
     <h1 class="left-title">作品を<br><span>残す</span>。</h1>
-    <p class="left-sub">HTMLファイルをアップロードするだけ。GitHubもVercelも不要です。</p>
+    <p class="left-sub">Netlify DropでURLを発行して、ここに貼り付けるだけ。</p>
     <div class="left-steps">
       <div class="step"><div class="step-num">01</div><span class="step-text">Claudeで採用ページを作る</span></div>
-      <div class="step"><div class="step-num">02</div><span class="step-text">HTMLファイルをここにアップロード</span></div>
-      <div class="step"><div class="step-num">03</div><span class="step-text">自動でURL発行・ギャラリーに追加</span></div>
+      <div class="step"><div class="step-num">02</div><span class="step-text">Netlify DropでURLを発行する</span></div>
+      <div class="step"><div class="step-num">03</div><span class="step-text">名前・URL・説明を入力して提出</span></div>
     </div>
   </div>
-
   <div class="right-panel">
     <p class="form-title">作品を提出する</p>
-
+    <div class="hint">
+      まだURLがない方は <a href="guide.html">はじめての人へ</a> を読んでください。
+    </div>
     <div class="form-group">
       <label class="form-label" for="name">あなたの名前</label>
       <input class="form-input" type="text" id="name" placeholder="山田 太郎" />
     </div>
-
     <div class="form-group">
       <label class="form-label" for="title">ページのタイトル <span>（例：文系のあなたへ。）</span></label>
       <input class="form-input" type="text" id="title" placeholder="このページのキャッチコピーや見出し" />
     </div>
-
     <div class="form-group">
       <label class="form-label" for="description">一言説明</label>
       <textarea class="form-textarea" id="description" placeholder="例：未経験・文系向けに作った採用ページです。"></textarea>
     </div>
-
     <div class="form-group">
-      <label class="form-label">HTMLファイル</label>
-      <div class="file-drop" id="fileDrop">
-        <input type="file" id="fileInput" accept=".html,.htm" />
-        <div class="file-drop-icon">📄</div>
-        <p class="file-drop-text">HTMLファイルをドラッグ&ドロップ</p>
-        <p class="file-drop-sub">または クリックして選択</p>
-      </div>
-      <div class="file-selected" id="fileSelected"></div>
+      <label class="form-label" for="url">採用ページのURL</label>
+      <input class="form-input" type="url" id="url" placeholder="https://xxxx.netlify.app" />
     </div>
-
-    <button class="submit-btn" id="btn" onclick="submitForm()">
-      提出する →
-    </button>
-
-    <div class="progress" id="progress">
-      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-      <p class="progress-text" id="progressText">デプロイ中...</p>
-    </div>
-
+    <button class="submit-btn" id="btn" onclick="submitForm()">提出する →</button>
     <div class="message success" id="success">
-      ✓ &nbsp;公開完了！ギャラリーに追加されました。<br>
-      <div class="result-url" id="resultUrl"></div>
-      <br><a href="index.html">← ギャラリーで確認する</a>
+      ✓ &nbsp;提出が完了しました！ギャラリーに追加されます。<br><br>
+      <a href="index.html">← ギャラリーで確認する</a>
     </div>
-    <div class="message error" id="error">
-      提出に失敗しました。もう一度お試しください。
-    </div>
+    <div class="message error" id="error">提出に失敗しました。もう一度お試しください。</div>
   </div>
 </div>
-
-<!-- 送信用の隠しiframe -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
 <script>
-const APPS_SCRIPT_URL = '/api/deploy';
-
-const fileDrop = document.getElementById('fileDrop');
-const fileInput = document.getElementById('fileInput');
-const fileSelected = document.getElementById('fileSelected');
-let selectedFile = null;
-
-fileDrop.addEventListener('dragover', e => { e.preventDefault(); fileDrop.classList.add('dragover'); });
-fileDrop.addEventListener('dragleave', () => fileDrop.classList.remove('dragover'));
-fileDrop.addEventListener('drop', e => {
-  e.preventDefault();
-  fileDrop.classList.remove('dragover');
-  const file = e.dataTransfer.files[0];
-  if (file) setFile(file);
-});
-fileInput.addEventListener('change', e => {
-  if (e.target.files[0]) setFile(e.target.files[0]);
-});
-
-function setFile(file) {
-  selectedFile = file;
-  fileSelected.style.display = 'block';
-  fileSelected.textContent = '✓ ' + file.name + ' (' + Math.round(file.size / 1024) + ' KB)';
-}
-
-function setProgress(pct, text) {
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressText').textContent = text;
-}
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwXVd-7B691jrNW0DBjmvMQZJTKUmvtaUwyInB2hzHsKvtisqHG77nA1ckVqorGNT6H/exec';
 
 async function submitForm() {
   const name        = document.getElementById('name').value.trim();
   const title       = document.getElementById('title').value.trim();
   const description = document.getElementById('description').value.trim();
+  const url         = document.getElementById('url').value.trim();
 
   if (!name) { alert('名前を入力してください。'); return; }
-  if (!selectedFile) { alert('HTMLファイルを選択してください。'); return; }
+  if (!url) { alert('URLを入力してください。'); return; }
+  if (!url.startsWith('http')) { alert('URLは https:// から始めてください。'); return; }
 
   const btn = document.getElementById('btn');
   btn.disabled = true;
-
-  const progress = document.getElementById('progress');
-  progress.style.display = 'block';
-  setProgress(20, 'ファイルを読み込み中...');
+  btn.textContent = '送信中...';
 
   try {
-    const htmlBase64 = await readFileAsBase64(selectedFile);
-    setProgress(50, 'デプロイ中... (30秒ほどかかります)');
-
-    const response = await fetch(APPS_SCRIPT_URL, {
+    await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        type: 'deploy',
-        name, title, description,
-        html: htmlBase64,
-        date: new Date().toLocaleDateString('ja-JP')
-      })
+      body: JSON.stringify({ name, title, description, url, date: new Date().toLocaleDateString('ja-JP') })
     });
-
-    const result = await response.json();
-    setProgress(100, '完了！');
-    progress.style.display = 'none';
-
-    if (result.error) throw new Error(JSON.stringify(result.error));
-
     document.getElementById('success').style.display = 'block';
-    document.getElementById('resultUrl').textContent = result.url || '';
+    document.getElementById('name').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('url').value = '';
     btn.style.display = 'none';
-
   } catch (e) {
-    console.error(e);
-    progress.style.display = 'none';
     document.getElementById('error').style.display = 'block';
     btn.disabled = false;
+    btn.textContent = '提出する →';
   }
-}
-
-function readFileAsBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const arrayBuffer = e.target.result;
-      const bytes = new Uint8Array(arrayBuffer);
-      let binary = '';
-      bytes.forEach(b => binary += String.fromCharCode(b));
-      resolve(btoa(binary));
-    };
-    reader.onerror = reject;
-    reader.readAsArrayBuffer(file);
-  });
-}
-
-function readFile(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = e => resolve(e.target.result);
-    reader.onerror = reject;
-    reader.readAsText(file, 'UTF-8');
-  });
 }
 </script>
 </body>
