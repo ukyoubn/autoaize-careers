@@ -30,36 +30,29 @@
   .nav-cta { background: var(--black); color: var(--white); font-size: 13px; font-weight: 500; padding: 10px 24px; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; }
   .nav-cta:hover { background: var(--accent); }
 
-  /* HERO */
   .hero { padding: 140px 48px 80px; max-width: 800px; margin: 0 auto; }
   .hero-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 6px 14px; margin-bottom: 32px; }
   .hero-title { font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--black); margin-bottom: 24px; }
   .hero-sub { font-size: 17px; font-weight: 300; color: var(--gray-600); line-height: 1.9; max-width: 560px; }
 
-  /* OVERVIEW */
   .overview { background: var(--black); padding: 64px 48px; }
   .overview-inner { max-width: 800px; margin: 0 auto; }
   .overview-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 40px; }
-  .overview-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(255,255,255,0.08); }
+  .overview-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.08); }
   .overview-step { background: var(--black); padding: 28px 24px; }
   .overview-step-num { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 12px; }
   .overview-step-title { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.4; margin-bottom: 8px; }
   .overview-step-sub { font-size: 12px; font-weight: 300; color: var(--gray-400); line-height: 1.6; }
 
-  /* STEPS */
   .steps-section { max-width: 800px; margin: 0 auto; padding: 80px 48px; }
-
   .step-block { margin-bottom: 80px; }
   .step-header { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px solid var(--black); }
-  .step-num-badge { width: 48px; height: 48px; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 400; flex-shrink: 0; }
-  .step-header-text {}
+  .step-num-badge { width: 48px; height: 48px; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 14px; flex-shrink: 0; }
   .step-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 6px; }
   .step-title { font-size: 24px; font-weight: 900; letter-spacing: -0.02em; color: var(--black); }
-
   .step-body { padding-left: 72px; }
   .step-desc { font-size: 15px; font-weight: 300; color: var(--gray-600); line-height: 1.9; margin-bottom: 32px; }
 
-  /* 手順リスト */
   .how-list { display: flex; flex-direction: column; gap: 2px; }
   .how-item { display: flex; gap: 0; background: var(--gray-200); }
   .how-item-num { background: var(--black); color: var(--white); font-family: 'DM Mono', monospace; font-size: 11px; padding: 16px 20px; display: flex; align-items: flex-start; flex-shrink: 0; min-width: 56px; justify-content: center; }
@@ -67,36 +60,36 @@
   .how-item-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
   .how-item-desc { font-size: 13px; font-weight: 300; color: var(--gray-600); line-height: 1.7; }
 
-  /* コードブロック */
   .code-block { background: var(--black); color: #7dd3fc; font-family: 'DM Mono', monospace; font-size: 13px; padding: 20px 24px; margin: 20px 0; letter-spacing: 0.04em; line-height: 1.8; overflow-x: auto; }
 
-  /* ヒントボックス */
   .hint { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 16px 20px; margin: 24px 0; }
   .hint-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
   .hint-text { font-size: 14px; font-weight: 400; color: var(--black); line-height: 1.7; }
   .hint-text a { color: var(--accent); font-weight: 700; }
 
-  /* CTA */
   .cta-section { background: var(--black); padding: 80px 48px; text-align: center; }
   .cta-title { font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -0.02em; color: var(--white); margin-bottom: 16px; }
   .cta-sub { font-size: 15px; font-weight: 300; color: var(--gray-400); margin-bottom: 48px; }
+  .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .cta-btn { display: inline-flex; align-items: center; gap: 12px; background: var(--accent); color: var(--white); font-size: 14px; font-weight: 700; padding: 18px 40px; text-decoration: none; letter-spacing: 0.04em; transition: all 0.2s; }
   .cta-btn:hover { gap: 18px; opacity: 0.9; }
+  .cta-btn-sub { display: inline-flex; align-items: center; gap: 12px; background: transparent; color: var(--white); font-size: 14px; font-weight: 500; padding: 18px 40px; text-decoration: none; letter-spacing: 0.04em; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+  .cta-btn-sub:hover { border-color: var(--white); }
 
   footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
   .footer-brand { font-size: 15px; font-weight: 700; color: var(--white); }
   .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--gray-400); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-tag   { animation: fadeUp 0.5s ease both; }
+  .hero-tag { animation: fadeUp 0.5s ease both; }
   .hero-title { animation: fadeUp 0.5s 0.1s ease both; }
-  .hero-sub   { animation: fadeUp 0.5s 0.2s ease both; }
+  .hero-sub { animation: fadeUp 0.5s 0.2s ease both; }
 
   @media (max-width: 768px) {
     nav { padding: 0 24px; }
     .hero { padding: 120px 24px 60px; }
     .overview { padding: 48px 24px; }
-    .overview-steps { grid-template-columns: repeat(2, 1fr); }
+    .overview-steps { grid-template-columns: 1fr; }
     .steps-section { padding: 60px 24px; }
     .step-body { padding-left: 0; }
     .cta-section { padding: 60px 24px; }
@@ -114,51 +107,38 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-tag">Getting Started</div>
   <h1 class="hero-title">はじめての<br>人へ。</h1>
-  <p class="hero-sub">採用ページを作ってギャラリーに登録するまでの全手順を説明します。プログラミング経験がなくても大丈夫です。</p>
+  <p class="hero-sub">採用ページを作ってギャラリーに登録するまでの全手順です。プログラミング経験ゼロでも、約4分で完了します。</p>
 </div>
 
-<!-- OVERVIEW -->
 <div class="overview">
   <div class="overview-inner">
-    <p class="overview-title">全体の流れ</p>
+    <p class="overview-title">全体の流れ — 約4分</p>
     <div class="overview-steps">
       <div class="overview-step">
         <p class="overview-step-num">STEP 01</p>
         <p class="overview-step-title">Claudeで採用ページを作る</p>
-        <p class="overview-step-sub">AIに指示するだけでHTMLが完成</p>
+        <p class="overview-step-sub">AIに指示するだけ。約3分。</p>
       </div>
       <div class="overview-step">
         <p class="overview-step-num">STEP 02</p>
-        <p class="overview-step-title">GitHubにアップロード</p>
-        <p class="overview-step-sub">ファイルをクラウドに保存する</p>
-      </div>
-      <div class="overview-step">
-        <p class="overview-step-num">STEP 03</p>
-        <p class="overview-step-title">Vercelでデプロイ</p>
-        <p class="overview-step-sub">世界中からアクセスできるURLを発行</p>
-      </div>
-      <div class="overview-step">
-        <p class="overview-step-num">STEP 04</p>
-        <p class="overview-step-title">ギャラリーに提出</p>
-        <p class="overview-step-sub">URLをフォームに入力して完了</p>
+        <p class="overview-step-title">フォームに提出する</p>
+        <p class="overview-step-sub">HTMLファイルをドロップするだけ。約1分。自動でURL発行・ギャラリーに追加。</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- STEPS -->
 <div class="steps-section">
 
   <!-- STEP 1 -->
   <div class="step-block">
     <div class="step-header">
       <div class="step-num-badge">01</div>
-      <div class="step-header-text">
-        <p class="step-label">Step 01</p>
+      <div>
+        <p class="step-label">Step 01 — 約3分</p>
         <h2 class="step-title">Claudeで採用ページを作る</h2>
       </div>
     </div>
@@ -186,13 +166,13 @@
           <span class="how-item-num">3</span>
           <div class="how-item-content">
             <p class="how-item-title">HTMLファイルをダウンロードする</p>
-            <p class="how-item-desc">Claudeが生成したHTMLファイルをダウンロードして、ファイル名を <strong>index.html</strong> に変更する</p>
+            <p class="how-item-desc">Claudeが生成したHTMLファイルをダウンロードする（ファイル名はそのままでOK）</p>
           </div>
         </div>
       </div>
       <div class="hint">
         <p class="hint-label">💡 Hint</p>
-        <p class="hint-text">「もっとダークなデザインに」「日本語で」「画像を追加して」など、何度でも修正依頼ができます。納得いくまで調整してみてください。</p>
+        <p class="hint-text">「もっとダークなデザインに」「画像を追加して」など、何度でも修正依頼ができます。納得いくまで調整してみてください。</p>
       </div>
     </div>
   </div>
@@ -201,91 +181,13 @@
   <div class="step-block">
     <div class="step-header">
       <div class="step-num-badge">02</div>
-      <div class="step-header-text">
-        <p class="step-label">Step 02</p>
-        <h2 class="step-title">GitHubにアップロードする</h2>
+      <div>
+        <p class="step-label">Step 02 — 約1分</p>
+        <h2 class="step-title">フォームに提出する</h2>
       </div>
     </div>
     <div class="step-body">
-      <p class="step-desc">GitHubはファイルをクラウドに保存するサービスです。まずアカウントを作り、リポジトリ（フォルダ）にファイルをアップします。</p>
-      <div class="how-list">
-        <div class="how-item">
-          <span class="how-item-num">1</span>
-          <div class="how-item-content">
-            <p class="how-item-title">GitHubアカウントを作る</p>
-            <p class="how-item-desc"><a href="https://github.com" target="_blank" style="color:var(--accent);font-weight:700;">github.com</a> でアカウントを作成する（無料）</p>
-          </div>
-        </div>
-        <div class="how-item">
-          <span class="how-item-num">2</span>
-          <div class="how-item-content">
-            <p class="how-item-title">新しいリポジトリを作る</p>
-            <p class="how-item-desc">右上の「+」→「New repository」をクリック。名前は何でもOK（例：my-careers-page）。「Create repository」をクリック。</p>
-          </div>
-        </div>
-        <div class="how-item">
-          <span class="how-item-num">3</span>
-          <div class="how-item-content">
-            <p class="how-item-title">index.htmlをアップロードする</p>
-            <p class="how-item-desc">リポジトリのページで「uploading an existing file」をクリック → index.htmlをドラッグ&ドロップ → 「Commit changes」をクリック</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 3 -->
-  <div class="step-block">
-    <div class="step-header">
-      <div class="step-num-badge">03</div>
-      <div class="step-header-text">
-        <p class="step-label">Step 03</p>
-        <h2 class="step-title">Vercelでデプロイする</h2>
-      </div>
-    </div>
-    <div class="step-body">
-      <p class="step-desc">VercelはGitHubのファイルをインターネット上に公開してURLを発行するサービスです。30秒で完了します。</p>
-      <div class="how-list">
-        <div class="how-item">
-          <span class="how-item-num">1</span>
-          <div class="how-item-content">
-            <p class="how-item-title">Vercelにログインする</p>
-            <p class="how-item-desc"><a href="https://vercel.com" target="_blank" style="color:var(--accent);font-weight:700;">vercel.com</a> を開いて「Continue with GitHub」でログイン（無料）</p>
-          </div>
-        </div>
-        <div class="how-item">
-          <span class="how-item-num">2</span>
-          <div class="how-item-content">
-            <p class="how-item-title">新しいプロジェクトを作る</p>
-            <p class="how-item-desc">「Add New Project」をクリック → さっき作ったGitHubのリポジトリを選択 → 「Import」をクリック</p>
-          </div>
-        </div>
-        <div class="how-item">
-          <span class="how-item-num">3</span>
-          <div class="how-item-content">
-            <p class="how-item-title">デプロイする</p>
-            <p class="how-item-desc">設定は変えずそのまま「Deploy」をクリック。30秒ほどで🎊マークとURLが表示されます。</p>
-          </div>
-        </div>
-      </div>
-      <div class="hint">
-        <p class="hint-label">💡 URLの例</p>
-        <p class="hint-text">発行されるURLはこんな形です：<br><strong>https://my-careers-page.vercel.app</strong></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 4 -->
-  <div class="step-block">
-    <div class="step-header">
-      <div class="step-num-badge">04</div>
-      <div class="step-header-text">
-        <p class="step-label">Step 04</p>
-        <h2 class="step-title">ギャラリーに提出する</h2>
-      </div>
-    </div>
-    <div class="step-body">
-      <p class="step-desc">VercelのURLが発行されたら、提出フォームに入力するだけで完了です。</p>
+      <p class="step-desc">提出フォームにHTMLファイルをドロップするだけで、自動でURLが発行されギャラリーに追加されます。GitHubもVercelも不要です。</p>
       <div class="how-list">
         <div class="how-item">
           <span class="how-item-num">1</span>
@@ -297,15 +199,22 @@
         <div class="how-item">
           <span class="how-item-num">2</span>
           <div class="how-item-content">
-            <p class="how-item-title">名前・タイトル・説明・URLを入力する</p>
-            <p class="how-item-desc">VercelのURLを「採用ページのURL」欄に貼り付けて送信</p>
+            <p class="how-item-title">名前・タイトル・説明を入力する</p>
+            <p class="how-item-desc">ページのキャッチコピーや一言説明を入力する</p>
           </div>
         </div>
         <div class="how-item">
           <span class="how-item-num">3</span>
           <div class="how-item-content">
-            <p class="how-item-title">ギャラリーに追加される</p>
-            <p class="how-item-desc">自動でギャラリーに表示されます。完成🎉</p>
+            <p class="how-item-title">HTMLファイルをドロップする</p>
+            <p class="how-item-desc">Claudeが作ったHTMLファイルをドラッグ&ドロップする</p>
+          </div>
+        </div>
+        <div class="how-item">
+          <span class="how-item-num">4</span>
+          <div class="how-item-content">
+            <p class="how-item-title">「提出する」を押す 🎉</p>
+            <p class="how-item-desc">自動でURLが発行され、ギャラリーに追加されます。約30秒かかります。</p>
           </div>
         </div>
       </div>
@@ -314,11 +223,13 @@
 
 </div>
 
-<!-- CTA -->
 <div class="cta-section">
   <h2 class="cta-title">さあ、作ってみよう。</h2>
-  <p class="cta-sub">まずはClaudeに話しかけるところから。</p>
-  <a href="https://claude.ai" target="_blank" class="cta-btn">Claudeを開く →</a>
+  <p class="cta-sub">まずはClaudeに話しかけるところから。約4分で完成します。</p>
+  <div class="cta-buttons">
+    <a href="https://claude.ai" target="_blank" class="cta-btn">Claudeを開く →</a>
+    <a href="index.html" class="cta-btn-sub">ギャラリーを見る</a>
+  </div>
 </div>
 
 <footer>
