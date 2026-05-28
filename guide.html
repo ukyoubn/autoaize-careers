@@ -21,7 +21,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { color: var(--black); background: var(--white); font-family: 'Noto Sans JP', sans-serif; font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 0 48px; height: 64px; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); }
   .nav-brand { font-size: 17px; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.02em; }
   .nav-right { display: flex; align-items: center; gap: 32px; }
@@ -29,21 +28,18 @@
   .nav-link:hover { color: var(--black); }
   .nav-cta { background: var(--black); color: var(--white); font-size: 13px; font-weight: 500; padding: 10px 24px; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; }
   .nav-cta:hover { background: var(--accent); }
-
   .hero { padding: 140px 48px 80px; max-width: 800px; margin: 0 auto; }
   .hero-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 6px 14px; margin-bottom: 32px; }
   .hero-title { font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; color: var(--black); margin-bottom: 24px; }
   .hero-sub { font-size: 17px; font-weight: 300; color: var(--gray-600); line-height: 1.9; max-width: 560px; }
-
   .overview { background: var(--black); padding: 64px 48px; }
   .overview-inner { max-width: 800px; margin: 0 auto; }
   .overview-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 40px; }
-  .overview-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.08); }
+  .overview-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.08); }
   .overview-step { background: var(--black); padding: 28px 24px; }
   .overview-step-num { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 12px; }
   .overview-step-title { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.4; margin-bottom: 8px; }
   .overview-step-sub { font-size: 12px; font-weight: 300; color: var(--gray-400); line-height: 1.6; }
-
   .steps-section { max-width: 800px; margin: 0 auto; padding: 80px 48px; }
   .step-block { margin-bottom: 80px; }
   .step-header { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px solid var(--black); }
@@ -52,21 +48,17 @@
   .step-title { font-size: 24px; font-weight: 900; letter-spacing: -0.02em; color: var(--black); }
   .step-body { padding-left: 72px; }
   .step-desc { font-size: 15px; font-weight: 300; color: var(--gray-600); line-height: 1.9; margin-bottom: 32px; }
-
   .how-list { display: flex; flex-direction: column; gap: 2px; }
   .how-item { display: flex; gap: 0; background: var(--gray-200); }
   .how-item-num { background: var(--black); color: var(--white); font-family: 'DM Mono', monospace; font-size: 11px; padding: 16px 20px; display: flex; align-items: flex-start; flex-shrink: 0; min-width: 56px; justify-content: center; }
   .how-item-content { background: var(--gray-100); padding: 16px 24px; flex: 1; }
   .how-item-title { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
   .how-item-desc { font-size: 13px; font-weight: 300; color: var(--gray-600); line-height: 1.7; }
-
   .code-block { background: var(--black); color: #7dd3fc; font-family: 'DM Mono', monospace; font-size: 13px; padding: 20px 24px; margin: 20px 0; letter-spacing: 0.04em; line-height: 1.8; overflow-x: auto; }
-
   .hint { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 16px 20px; margin: 24px 0; }
   .hint-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
   .hint-text { font-size: 14px; font-weight: 400; color: var(--black); line-height: 1.7; }
   .hint-text a { color: var(--accent); font-weight: 700; }
-
   .cta-section { background: var(--black); padding: 80px 48px; text-align: center; }
   .cta-title { font-size: clamp(28px, 4vw, 48px); font-weight: 900; letter-spacing: -0.02em; color: var(--white); margin-bottom: 16px; }
   .cta-sub { font-size: 15px; font-weight: 300; color: var(--gray-400); margin-bottom: 48px; }
@@ -75,16 +67,9 @@
   .cta-btn:hover { gap: 18px; opacity: 0.9; }
   .cta-btn-sub { display: inline-flex; align-items: center; gap: 12px; background: transparent; color: var(--white); font-size: 14px; font-weight: 500; padding: 18px 40px; text-decoration: none; letter-spacing: 0.04em; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
   .cta-btn-sub:hover { border-color: var(--white); }
-
   footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
   .footer-brand { font-size: 15px; font-weight: 700; color: var(--white); }
   .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--gray-400); }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-tag { animation: fadeUp 0.5s ease both; }
-  .hero-title { animation: fadeUp 0.5s 0.1s ease both; }
-  .hero-sub { animation: fadeUp 0.5s 0.2s ease both; }
-
   @media (max-width: 768px) {
     nav { padding: 0 24px; }
     .hero { padding: 120px 24px 60px; }
@@ -98,7 +83,6 @@
 </style>
 </head>
 <body>
-
 <nav>
   <a href="/" class="nav-brand">AutoAIze</a>
   <div class="nav-right">
@@ -110,12 +94,12 @@
 <div class="hero">
   <div class="hero-tag">Getting Started</div>
   <h1 class="hero-title">はじめての<br>人へ。</h1>
-  <p class="hero-sub">採用ページを作ってギャラリーに登録するまでの全手順です。プログラミング経験ゼロでも、約4分で完了します。</p>
+  <p class="hero-sub">採用ページを作ってギャラリーに登録するまでの全手順です。プログラミング経験ゼロでも、約5分で完了します。</p>
 </div>
 
 <div class="overview">
   <div class="overview-inner">
-    <p class="overview-title">全体の流れ — 約4分</p>
+    <p class="overview-title">全体の流れ — 約5分</p>
     <div class="overview-steps">
       <div class="overview-step">
         <p class="overview-step-num">STEP 01</p>
@@ -124,8 +108,13 @@
       </div>
       <div class="overview-step">
         <p class="overview-step-num">STEP 02</p>
-        <p class="overview-step-title">フォームに提出する</p>
-        <p class="overview-step-sub">HTMLファイルをドロップするだけ。約1分。自動でURL発行・ギャラリーに追加。</p>
+        <p class="overview-step-title">Netlify DropでURLを発行</p>
+        <p class="overview-step-sub">ドラッグ&ドロップだけ。約1分。アカウント不要・無料。</p>
+      </div>
+      <div class="overview-step">
+        <p class="overview-step-num">STEP 03</p>
+        <p class="overview-step-title">ギャラリーに提出する</p>
+        <p class="overview-step-sub">URLを入力して送信。約1分。</p>
       </div>
     </div>
   </div>
@@ -133,7 +122,6 @@
 
 <div class="steps-section">
 
-  <!-- STEP 1 -->
   <div class="step-block">
     <div class="step-header">
       <div class="step-num-badge">01</div>
@@ -177,17 +165,63 @@
     </div>
   </div>
 
-  <!-- STEP 2 -->
   <div class="step-block">
     <div class="step-header">
       <div class="step-num-badge">02</div>
       <div>
         <p class="step-label">Step 02 — 約1分</p>
-        <h2 class="step-title">フォームに提出する</h2>
+        <h2 class="step-title">Netlify DropでURLを発行する</h2>
       </div>
     </div>
     <div class="step-body">
-      <p class="step-desc">提出フォームにHTMLファイルをドロップするだけで、自動でURLが発行されギャラリーに追加されます。GitHubもVercelも不要です。</p>
+      <p class="step-desc">Netlify Dropはファイルをドラッグ&ドロップするだけでURLを発行してくれる無料サービスです。アカウント登録不要です。</p>
+      <div class="how-list">
+        <div class="how-item">
+          <span class="how-item-num">1</span>
+          <div class="how-item-content">
+            <p class="how-item-title">Netlify Dropを開く</p>
+            <p class="how-item-desc"><a href="https://app.netlify.com/drop" target="_blank" style="color:var(--accent);font-weight:700;">app.netlify.com/drop</a> をブラウザで開く</p>
+          </div>
+        </div>
+        <div class="how-item">
+          <span class="how-item-num">2</span>
+          <div class="how-item-content">
+            <p class="how-item-title">HTMLファイルをドラッグ&ドロップする</p>
+            <p class="how-item-desc">Claudeが作ったHTMLファイルをページ上にドラッグ&ドロップする</p>
+          </div>
+        </div>
+        <div class="how-item">
+          <span class="how-item-num">3</span>
+          <div class="how-item-content">
+            <p class="how-item-title">「本番環境へのデプロイを開始する」をクリック</p>
+            <p class="how-item-desc">デプロイ完了画面が出たらボタンをクリック。数秒でURLが発行されます。</p>
+          </div>
+        </div>
+        <div class="how-item">
+          <span class="how-item-num">4</span>
+          <div class="how-item-content">
+            <p class="how-item-title">URLをコピーする</p>
+            <p class="how-item-desc">こんな形のURLが発行されます：<br><strong>https://splendid-hummingbird-f221b2.netlify.app</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="hint">
+        <p class="hint-label">⚠️ 注意</p>
+        <p class="hint-text">ファイル名を <strong>index.html</strong> にリネームしてからドロップしてください。そうしないと404エラーになります。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num-badge">03</div>
+      <div>
+        <p class="step-label">Step 03 — 約1分</p>
+        <h2 class="step-title">ギャラリーに提出する</h2>
+      </div>
+    </div>
+    <div class="step-body">
+      <p class="step-desc">NetlifyのURLが発行されたら、提出フォームに入力するだけで完了です。</p>
       <div class="how-list">
         <div class="how-item">
           <span class="how-item-num">1</span>
@@ -199,22 +233,15 @@
         <div class="how-item">
           <span class="how-item-num">2</span>
           <div class="how-item-content">
-            <p class="how-item-title">名前・タイトル・説明を入力する</p>
-            <p class="how-item-desc">ページのキャッチコピーや一言説明を入力する</p>
+            <p class="how-item-title">名前・タイトル・説明・URLを入力する</p>
+            <p class="how-item-desc">NetlifyのURLを「採用ページのURL」欄に貼り付けて送信</p>
           </div>
         </div>
         <div class="how-item">
           <span class="how-item-num">3</span>
           <div class="how-item-content">
-            <p class="how-item-title">HTMLファイルをドロップする</p>
-            <p class="how-item-desc">Claudeが作ったHTMLファイルをドラッグ&ドロップする</p>
-          </div>
-        </div>
-        <div class="how-item">
-          <span class="how-item-num">4</span>
-          <div class="how-item-content">
-            <p class="how-item-title">「提出する」を押す 🎉</p>
-            <p class="how-item-desc">自動でURLが発行され、ギャラリーに追加されます。約30秒かかります。</p>
+            <p class="how-item-title">ギャラリーに追加される 🎉</p>
+            <p class="how-item-desc">自動でギャラリーに表示されます。完成！</p>
           </div>
         </div>
       </div>
@@ -225,7 +252,7 @@
 
 <div class="cta-section">
   <h2 class="cta-title">さあ、作ってみよう。</h2>
-  <p class="cta-sub">まずはClaudeに話しかけるところから。約4分で完成します。</p>
+  <p class="cta-sub">まずはClaudeに話しかけるところから。約5分で完成します。</p>
   <div class="cta-buttons">
     <a href="https://claude.ai" target="_blank" class="cta-btn">Claudeを開く →</a>
     <a href="index.html" class="cta-btn-sub">ギャラリーを見る</a>
@@ -236,6 +263,5 @@
   <span class="footer-brand">AutoAIze</span>
   <span class="footer-copy">Careers Gallery © 2026</span>
 </footer>
-
 </body>
 </html>
