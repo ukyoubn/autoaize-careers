@@ -6,73 +6,148 @@
 <title>AutoAIze — 作品を提出する</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@500;700&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:    #fafaf7;
-    --ink:      #1a1a1a;
-    --ink-soft: #4a4a4a;
-    --muted:    #8a8580;
-    --line:     rgba(26, 26, 26, 0.12);
-    --accent:   #c2402f;
-    --gold:     #c9a96a;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --gray-100: #f5f5f5;
+    --gray-200: #e8e8e8;
+    --gray-400: #999999;
+    --gray-600: #555555;
+    --accent: #0057ff;
+    --accent-light: #e8eeff;
+    --success: #00a651;
+    --success-light: #e6f7ee;
+    --error: #e03131;
+    --error-light: #fff0f0;
   }
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body {
-    margin: 0; padding: 0;
-    color: var(--ink);
-    background: var(--paper);
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 300;
-    line-height: 1.85;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    color: var(--black);
+    background: var(--white);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
   }
 
-  .wrap {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  nav.top {
-    padding: 28px 32px;
+  /* NAV */
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 48px;
+    height: 64px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .nav-brand {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-back {
     font-size: 13px;
-    color: var(--ink-soft);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.08em;
-    border-bottom: 1px solid var(--line);
-  }
-  nav.top .brand { font-weight: 400; color: var(--ink); }
-  nav.top .meta  { color: var(--muted); letter-spacing: 0.18em; font-size: 11px; }
-
-  .hero {
-    padding: 10vh 0 6vh;
-  }
-  .hero-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-  .hero-title {
-    font-family: 'Kaisei Decol', serif;
     font-weight: 500;
-    font-size: clamp(24px, 3.5vw, 40px);
-    line-height: 1.4;
-    margin: 0 0 16px;
-    color: var(--ink);
+    color: var(--gray-600);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
   }
-  .hero-sub {
+  .nav-back:hover { color: var(--black); }
+
+  /* LAYOUT */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 64px);
+  }
+
+  /* LEFT PANEL */
+  .left-panel {
+    background: var(--black);
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .left-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(0, 87, 255, 0.15);
+    padding: 6px 14px;
+    margin-bottom: 40px;
+    width: fit-content;
+  }
+  .left-title {
+    font-size: clamp(32px, 3.5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .left-title span { color: var(--accent); }
+  .left-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--gray-400);
+    line-height: 1.9;
+    max-width: 360px;
+    margin-bottom: 56px;
+  }
+  .left-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'DM Mono', monospace;
     font-size: 12px;
-    letter-spacing: 0.14em;
-    color: var(--muted);
-    margin: 0 0 48px;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .step-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.01em;
+  }
+
+  /* RIGHT PANEL */
+  .right-panel {
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 48px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--black);
   }
 
   .form-group {
@@ -81,155 +156,171 @@
   .form-label {
     display: block;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
+    font-size: 10px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--gray-400);
     margin-bottom: 12px;
   }
   .form-input {
     display: block;
     width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--line);
-    padding: 12px 0;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 16px;
-    font-weight: 300;
-    color: var(--ink);
+    background: var(--gray-100);
+    border: 2px solid transparent;
+    padding: 16px 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--black);
     outline: none;
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
+    transition: all 0.2s;
     border-radius: 0;
+    -webkit-appearance: none;
   }
   .form-input:focus {
-    border-bottom-color: var(--ink);
+    background: var(--white);
+    border-color: var(--black);
   }
   .form-input::placeholder {
-    color: var(--muted);
-    font-size: 14px;
+    color: var(--gray-400);
   }
 
   .submit-btn {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--paper);
-    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 20px 40px;
     border: none;
-    padding: 16px 40px;
     cursor: pointer;
-    transition: opacity 0.2s;
-    margin-top: 16px;
+    transition: all 0.2s;
+    margin-top: 8px;
   }
-  .submit-btn:hover { opacity: 0.75; }
+  .submit-btn:hover:not(:disabled) {
+    background: var(--accent);
+    gap: 18px;
+  }
   .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-arrow { font-size: 18px; transition: transform 0.2s; }
 
   .message {
-    margin-top: 32px;
-    padding: 20px 24px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.14em;
     display: none;
+    margin-top: 24px;
+    padding: 20px 24px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
   }
   .message.success {
-    border-left: 2px solid var(--gold);
-    color: var(--ink-soft);
+    background: var(--success-light);
+    border-left: 3px solid var(--success);
+    color: var(--success);
   }
   .message.error {
-    border-left: 2px solid var(--accent);
-    color: var(--accent);
+    background: var(--error-light);
+    border-left: 3px solid var(--error);
+    color: var(--error);
+  }
+  .message a {
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: underline;
   }
 
-  .back-link {
-    display: inline-block;
-    margin-top: 40px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--muted);
-    text-decoration: none;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 2px;
+  /* ANIMATION */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
-  .back-link:hover { color: var(--ink); border-color: var(--ink); }
+  .left-tag   { animation: fadeUp 0.4s ease both; }
+  .left-title { animation: fadeUp 0.4s 0.08s ease both; }
+  .left-sub   { animation: fadeUp 0.4s 0.16s ease both; }
+  .left-steps { animation: fadeUp 0.4s 0.24s ease both; }
+  .right-panel { animation: fadeUp 0.4s 0.12s ease both; }
 
-  footer {
-    margin-top: 80px;
-    border-top: 1px solid var(--line);
-    padding: 32px 0;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--muted);
-    text-align: center;
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .layout { grid-template-columns: 1fr; }
+    .left-panel { padding: 48px 24px; }
+    .right-panel { padding: 48px 24px; }
   }
 </style>
 </head>
 <body>
 
-<nav class="top">
-  <span class="brand">AutoAIze</span>
-  <span class="meta">Careers · Submit</span>
+<nav>
+  <a href="/" class="nav-brand">AutoAIze</a>
+  <a href="index.html" class="nav-back">← ギャラリーに戻る</a>
 </nav>
 
-<div class="wrap">
-  <div class="hero">
-    <p class="hero-label">— Submit Your Work</p>
-    <h1 class="hero-title">あなたの作品を<br>ここに残す。</h1>
-    <p class="hero-sub">名前とURLを入力するだけ。</p>
+<div class="layout">
+  <div class="left-panel">
+    <div class="left-tag">Submit Your Work</div>
+    <h1 class="left-title">作品を<br><span>残す</span>。</h1>
+    <p class="left-sub">名前とURLを入力するだけ。あなたの採用ページが、ギャラリーに加わります。</p>
+    <div class="left-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <span class="step-text">採用ページをVercelにデプロイする</span>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <span class="step-text">発行されたURLをここに入力する</span>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <span class="step-text">ギャラリーに自動で追加される</span>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label class="form-label" for="name">あなたの名前</label>
-    <input class="form-input" type="text" id="name" placeholder="山田 太郎" />
-  </div>
+  <div class="right-panel">
+    <p class="form-title">作品を提出する</p>
 
-  <div class="form-group">
-    <label class="form-label" for="url">採用ページのURL</label>
-    <input class="form-input" type="url" id="url" placeholder="https://your-page.vercel.app" />
-  </div>
+    <div class="form-group">
+      <label class="form-label" for="name">あなたの名前</label>
+      <input class="form-input" type="text" id="name" placeholder="山田 太郎" />
+    </div>
 
-  <button class="submit-btn" id="btn" onclick="submitForm()">提出する →</button>
+    <div class="form-group">
+      <label class="form-label" for="url">採用ページのURL</label>
+      <input class="form-input" type="url" id="url" placeholder="https://your-page.vercel.app" />
+    </div>
 
-  <div class="message success" id="success">
-    ✓ &nbsp;提出が完了しました。ギャラリーに追加されます。
-    <br><br>
-    <a href="index.html" style="color: var(--ink); letter-spacing: 0.1em;">← ギャラリーを見る</a>
-  </div>
-  <div class="message error" id="error">
-    提出に失敗しました。もう一度お試しください。
-  </div>
+    <button class="submit-btn" id="btn" onclick="submitForm()">
+      提出する <span class="btn-arrow">→</span>
+    </button>
 
-  <br>
-  <a href="index.html" class="back-link">← ギャラリーに戻る</a>
+    <div class="message success" id="success">
+      ✓ &nbsp;提出が完了しました！ギャラリーに追加されます。<br><br>
+      <a href="index.html">← ギャラリーで確認する</a>
+    </div>
+    <div class="message error" id="error">
+      提出に失敗しました。もう一度お試しください。
+    </div>
+  </div>
 </div>
 
-<footer>AutoAIze Inc. — Careers Gallery</footer>
-
 <script>
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRUpMFxmno_PeJhR0BnhQsYDBkotsA_WoQp54PrJ-DWLbG4CVmVa5GewPe8n8rkNLQ/exec';
 
 async function submitForm() {
   const name = document.getElementById('name').value.trim();
   const url  = document.getElementById('url').value.trim();
 
-  if (!name || !url) {
-    alert('名前とURLを入力してください。');
-    return;
-  }
-  if (!url.startsWith('http')) {
-    alert('URLは http:// または https:// から始めてください。');
-    return;
-  }
+  if (!name || !url) { alert('名前とURLを入力してください。'); return; }
+  if (!url.startsWith('http')) { alert('URLは https:// から始めてください。'); return; }
 
   const btn = document.getElementById('btn');
   btn.disabled = true;
-  btn.textContent = '送信中...';
+  btn.innerHTML = '送信中... <span class="btn-arrow">⟳</span>';
 
   try {
     await fetch(APPS_SCRIPT_URL, {
@@ -238,7 +329,6 @@ async function submitForm() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, url, date: new Date().toLocaleDateString('ja-JP') })
     });
-
     document.getElementById('success').style.display = 'block';
     document.getElementById('name').value = '';
     document.getElementById('url').value = '';
@@ -246,7 +336,7 @@ async function submitForm() {
   } catch (e) {
     document.getElementById('error').style.display = 'block';
     btn.disabled = false;
-    btn.textContent = '提出する →';
+    btn.innerHTML = '提出する <span class="btn-arrow">→</span>';
   }
 }
 </script>
